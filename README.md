@@ -4,6 +4,15 @@
 > mrunalini0107@gmail.com |  Mumbai – 400095
 
 ---
+**Advanced Statistics: Mixed Models – GLMM using R** is a three-part tutorial series that builds a practical, R-based toolkit for Generalized Linear Mixed Models (GLMMs) — models that combine a GLM's flexibility for non-normal response distributions with an LMM's ability to handle grouped, hierarchical, and repeated-measures data.
+The series covers:
+
+**1. Zero-Inflated Models in R —** modeling count data with excess zeros using Zero-Inflated Poisson (ZIP) and Zero-Inflated Negative Binomial (ZINB) models in glmmTMB, illustrated with the Owl Nestlings begging dataset.
+
+**2. On Labs and Eggs —** a pure nested random-effects (variance components) model using lme4, applied to an inter-laboratory consistency experiment (Lab → Technician → Sample) to determine where measurement inconsistency actually comes from.
+
+**3. GLMM: GLM + LMM = GLMM —** building a Poisson GLMM from first principles on the RIKZ species richness dataset, starting from a Gaussian LMM, diagnosing its failure on count data, and refining the model with the correct distribution and random-effects structure.
+
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8468cfa4-2ae0-47f5-b21b-8a3456ff9b00" />
 
 
