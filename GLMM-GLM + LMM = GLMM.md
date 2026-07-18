@@ -1,6 +1,6 @@
 # GLMM: GLM + LMM = GLMM — Species Richness on Beaches (RIKZ Dataset)
 
-## 📘 Description
+## Description
 
 This project demonstrates, step by step, why and how a **Generalized Linear Mixed Model (GLMM)** combines the strengths of a **Generalized Linear Model (GLM)** — for non-normal response distributions — and a **Linear Mixed Model (LMM)** — for grouped/hierarchical data with random effects. The analysis uses the well-known **RIKZ dataset** from Zuur et al., *"Mixed Effects Models and Extensions in Ecology with R"*, which records marine species richness on Dutch beaches.
 
@@ -20,7 +20,7 @@ The notebook walks through the complete workflow:
 
 This notebook is a practical illustration of the core message in its title: a **GLMM is what you get when you combine a GLM's flexible response distribution with an LMM's random-effects structure** — and of the diagnostic process used to decide, empirically, when that combination is actually needed.
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By working through this notebook, you will be able to:
 
@@ -35,7 +35,7 @@ By working through this notebook, you will be able to:
 9. **Iteratively simplify a GLMM** by removing non-significant fixed-effect interactions and unnecessary random slopes, using AIC and LRT at each step to justify the simplification.
 10. **Interpret final GLMM fixed-effect and random-effect estimates and confidence intervals** on the Poisson (log) scale, and use random-effect dot plots (with conditional variances) to visualize beach-level and exposure-level variability.
 
-## 🧩 Dataset
+## Dataset
 
 The **RIKZ** dataset contains marine benthic species richness data collected from **9 beaches**, with **5 sampling stations per beach** (45 observations total). Key variables:
 
@@ -48,7 +48,7 @@ The **RIKZ** dataset contains marine benthic species richness data collected fro
 
 Since `Exposure` is a property of the beach, **`Beaches` is nested within `Expos`** — every beach has one and only one exposure level.
 
-## 🛠️ Requirements
+##  Requirements
 
 This notebook is written in **R** and requires the following packages:
 
@@ -65,13 +65,13 @@ install.packages("googledrive")
 
 The `RIKZ.txt` data file must be available in the working directory (the notebook shows an optional workflow for retrieving it from Google Drive via `googledrive::drive_download()`).
 
-## 🚀 How to Run
+##  How to Run
 
 1. Clone this repository and ensure `RIKZ.txt` is present in the working directory.
 2. Open `R15_GLMM_GLM_and_LMM_is_GLMM.ipynb` in Jupyter Notebook (with an R kernel installed, e.g. via `IRkernel`) or run the R code chunks directly in RStudio.
 3. Run the cells sequentially — later models (`Model1g`–`Model6g`) build on the data preparation and diagnostics established earlier in the notebook.
 
-## 📊 Key Results / Conclusion
+##  Key Results / Conclusion
 
 - Initial visualization revealed **different regression slopes of richness on `NAP` across beaches**, and confirmed that beaches are nested within the two exposure levels — motivating a mixed-effects (random-intercept and/or random-slope) approach from the start.
 - Fitting the data first as a **Gaussian linear mixed model (LMM)**, `Richness ~ Expos + NAP + NAP:Expos + (NAP | Expos:Beaches)`, produced a **model with the lowest AIC using only a random intercept** (Model3), but residual diagnostics (residual-vs-fitted plots, Q-Q plots, and DHARMa simulated residuals) revealed **heteroscedasticity and a right-skewed pattern typical of count data** — clear evidence that treating `Richness` as Gaussian was inappropriate.
@@ -80,7 +80,7 @@ The `RIKZ.txt` data file must be available in the working directory (the noteboo
 - Further model simplification via AIC/LRT showed that the **`Expos:NAP` interaction and the random slope for `NAP`** could both be dropped without meaningful loss of fit, leading to a **final, parsimonious model**: `Richness ~ Expos + NAP + I(NAP^2) + (1 | Expos:Beaches)`.
 - **Overall conclusion:** species richness on these beaches is well described by a **Poisson GLMM with a quadratic effect of sampling-station elevation (`NAP`)**, a fixed effect of beach exposure, and a simple random intercept for beach nested within exposure — richness is **highest at intermediate `NAP` values and declines at both extremes**, and differs systematically by exposure category, while beach-to-beach variability beyond exposure and elevation is captured by a modest random intercept. The project as a whole illustrates the practical decision process for **when a Gaussian LMM is insufficient and a full GLMM (with an appropriate response distribution) is required**, and how residual diagnostics — not just AIC — should drive that decision.
 
-## 📁 Repository Structure
+##  Repository Structure
 
 ```
 .
@@ -89,11 +89,11 @@ The `RIKZ.txt` data file must be available in the working directory (the noteboo
 └── README.md                              # Project documentation (this file)
 ```
 
-## 📚 Reference
+##  Reference
 
 Zuur, A. F., Ieno, E. N., Walker, N., Saveliev, A. A., & Smith, G. M. (2009). *Mixed Effects Models and Extensions in Ecology with R*. Springer. (Source of the RIKZ species richness dataset.)
 
-## 👤 Credit
+## Credit
 
 Notebook prepared by **Ms. Mrunalini** (Data Science Trainer)
 📧 mrunalini0107@gmail.com
