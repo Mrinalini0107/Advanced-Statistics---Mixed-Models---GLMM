@@ -1,7 +1,7 @@
 # Advanced Statistics: Mixed Models – GLMM
 
 > **Author:** Ms. Mrunalini (Data Science Trainer)
-> 📧 mrunalini0107@gmail.com | 📍 Mumbai – 400095
+> mrunalini0107@gmail.com |  Mumbai – 400095
 
 ---
 
@@ -142,8 +142,7 @@ These data come from the book *"Mixed Effects Models with Extensions in Ecology 
 
 ---
 
-## 👤 Credit
+## > **Author:**
 
 Course materials prepared by **Ms. Mrunalini** (Data Science Trainer)
-📧 mrunalini0107@gmail.com
-📍 Mumbai – 400095
+> mrunalini0107@gmail.com |  Mumbai – 400095
