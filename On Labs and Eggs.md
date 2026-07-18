@@ -1,6 +1,6 @@
 # On Labs and Eggs — Nested Random Effects Models in R
 
-## 📘 Description
+## Description
 
 This project analyzes a classic **inter-laboratory consistency experiment** using **nested random-effects models** (a special case of linear mixed models with no fixed predictors) in R, with the `lme4` and `lmerTest` packages. The dataset (`eggs`, from the `faraway` package) comes from a study designed to test whether fat-content measurements of a homogenized dried egg powder are consistent across different laboratories, technicians, and repeated samples.
 
@@ -22,7 +22,7 @@ The notebook walks through the complete workflow:
 8. Sensitivity checking by refitting after removing two extreme/outlying observations
 9. A **parametric simulation** from the final model, comparing simulated data densities to the observed data density to visually assess model adequacy
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By working through this notebook, you will be able to:
 
@@ -41,7 +41,7 @@ By working through this notebook, you will be able to:
 9. **Compute and interpret profile-likelihood confidence intervals** for variance components in a mixed model, and understand how model simplification changes how variance is partitioned (e.g., variance from a dropped `Sample` effect being reabsorbed into `Technician` and residual variance).
 10. **Use simulation from a fitted mixed model** (`simulate()`) as an additional, visual model-checking tool, and interpret why small sample sizes can produce large variability between simulated replicate datasets.
 
-## 🧩 Dataset
+##  Dataset
 
 The **eggs** dataset (from the `faraway` package) contains 48 observations across 4 variables:
 
@@ -54,7 +54,7 @@ The **eggs** dataset (from the `faraway` package) contains 48 observations acros
 
 Structure: 6 labs × 2 technicians per lab × 2 samples per technician × 2 replicate measurements per sample = 48 measurements. `Technician` and `Sample` are **nested** within `Lab` (technician "one" in Lab I is not the same person as technician "one" in Lab II), and all factors are treated as random effects since labs, technicians, and samples were effectively randomly selected/allocated.
 
-## 🛠️ Requirements
+## Requirements
 
 This notebook is written in **R** and requires the following packages:
 
@@ -68,13 +68,13 @@ install.packages("car")
 install.packages("lattice")
 ```
 
-## 🚀 How to Run
+##  How to Run
 
 1. Clone this repository.
 2. Open `R14_Eggs_Labs.ipynb` in Jupyter Notebook (with an R kernel installed, e.g. via `IRkernel`) or run the R code chunks directly in RStudio.
 3. Run the cells sequentially — later models (`Model`, `ModelLAB`, `Model1`–`Model3`, `Model2` refit, `Model_Out`) build on objects and diagnostics created earlier in the notebook.
 
-## 📊 Key Results / Conclusion
+##  Key Results / Conclusion
 
 - Exploratory analysis showed **clear differences between laboratory means** (with non-trivial variance across lab means) and **notable differences between technicians within the same lab**, particularly Technician 2 in Lab I, who measured a distinctly higher fat content than other technician/lab combinations.
 - The full nested model, `Fat ~ 1 + (1 | Lab) + (1 | Lab:Technician) + (1 | Lab:Technician:Sample)`, was diagnostically sound: residuals were approximately normally distributed and reasonably homogeneous, though the `Sample`-level random effect showed limited variation.
@@ -84,7 +84,7 @@ install.packages("lattice")
 - A **posterior predictive-style simulation** (100 simulated datasets from the fitted model, compared visually to the observed density of `Fat`) showed considerable variability between simulated replicate datasets — a reminder that with only 48 observations spread across a nested design, uncertainty in the estimated variance components is naturally high.
 - **Overall conclusion:** inter-laboratory measurement inconsistency in this experiment is driven by **both which laboratory performed the test and which technician within that laboratory did the measurement**, while repeated sample splits by the same technician were highly reproducible. This has a practical real-world implication: quality-control and calibration efforts should focus on standardizing lab and technician-level procedures, since these are the dominant sources of measurement disagreement — not the sampling/replication step itself.
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 .
@@ -92,11 +92,11 @@ install.packages("lattice")
 └── README.md              # Project documentation (this file)
 ```
 
-## 📚 Reference
+##  Reference
 
 `eggs` dataset, distributed with the **faraway** R package (Julian Faraway), commonly used to illustrate nested random-effects / variance-components models.
 
-## 👤 Credit
+## Credit
 
 Notebook prepared by **Ms. Mrunalini** (Data Science Trainer)
 📧 mrunalini0107@gmail.com
