@@ -4,6 +4,8 @@
 > mrunalini0107@gmail.com |  Mumbai – 400095
 
 ---
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8468cfa4-2ae0-47f5-b21b-8a3456ff9b00" />
+
 
 ## 1. Zero-Inflated Models in R
 
