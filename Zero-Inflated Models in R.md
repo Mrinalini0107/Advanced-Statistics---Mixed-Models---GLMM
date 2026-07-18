@@ -18,7 +18,7 @@ Count data such as the number of begging calls often contains **more zeros than 
 
 The notebook is structured as a guided tutorial, moving from *why zero-inflation matters* → *exploratory diagnostics* → *model fitting* → *model diagnostics* → *model comparison/simplification* → *final interpretation*.
 
-## 🎯 Learning Objectives
+##  Learning Objectives
 
 By working through this notebook, you will be able to:
 
@@ -51,7 +51,7 @@ The **Owls** dataset (built into `glmmTMB`) contains 599 observations with the f
 | `BroodSize` | Number of chicks in the brood |
 | `NegPerChick` | Number of negotiations per chick |
 
-## 🛠️ Requirements
+##  Requirements
 
 This notebook is written in **R** and requires the following packages:
 
